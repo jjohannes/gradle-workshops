@@ -10,14 +10,4 @@ dependencies {
     implementation(platform("com.fasterxml.jackson:jackson-bom:2.13.0"))
 }
 
-dependencies.constraints {
-    api("org.apache.commons:commons-lang3:3.11") {
-        version {
-            //strictly("[3,4)")
-            //prefer("3.11")
-            //rejectAll()
-        }
-    }
-}
-
 
