@@ -1,3 +1,5 @@
+import de.db.MyTask
+
 plugins {
     id("de.db.base")
     id("java-library")
@@ -8,9 +10,56 @@ java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
-tasks.test {
+val myTask = tasks.register<MyTask>("myTask") {
+    group = "my group"
+
+    mail.set("abc")
+    classFile.from(tasks.compileJava)
+    tokenFile.set(layout.buildDirectory.file("token.txt"))
+}
+
+tasks.compileJava.get()
+
+
+// React to plugin application
+plugins.withId("my-version-plugin") {
+    val parseVersion = tasks.named("parseVersion")
+    myTask {
+        tasks.register<MyTask>("myTask2") {
+            group = "my group"
+
+            mail.set(provider { "ddd" })
+            classFile.from(parseVersion)
+            tokenFile.set(layout.buildDirectory.file("token.txt"))
+        }
+    }
+}
+
+
+
+
+
+/*
+tasks.named() // Neu und Lazy
+
+
+tasks.getByName() // Alt und Eager
+var z = 5;
+tasks.register("") {
 
 }
+
+tasks.create("") {
+
+}
+*/
+
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+
 
 dependencies.constraints {
     api("org.apache.commons:commons-lang3:3.11") {
@@ -46,5 +95,4 @@ publishing {
         }
     }
 }
-
 
