@@ -13,10 +13,6 @@ tasks.test {
 
 }
 
-
-
-val libs = extensions.getByType<Libs>()
 dependencies.constraints {
-    implementation("${libs.commonsLang}:3.11")
+    implementation("org.apache.commons:commons-lang3:3.11")
 }
-

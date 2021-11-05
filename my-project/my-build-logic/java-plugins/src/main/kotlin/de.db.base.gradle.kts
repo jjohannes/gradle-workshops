@@ -1,4 +1,7 @@
 import de.db.Libs
 
-val libs = extensions.create<Libs>("libs")
+group = "de.db"
+version = "1.0"
+
+extensions.create<Libs>("libs")
 

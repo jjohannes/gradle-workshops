@@ -16,6 +16,7 @@ dependencyResolutionManagement {
     repositories.mavenCentral()
     // repositories.maven {  }
     includeBuild("../some-other-project")
+    includeBuild(".") // This allows to use coordinates for project dependencies
 }
 
 rootProject.name = "my-project"
