@@ -9,8 +9,3 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core")
     implementation(platform("com.fasterxml.jackson:jackson-bom:2.13.0"))
 }
-
-tasks.myTask {
-    mail.set("zzzz")
-}
-

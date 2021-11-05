@@ -18,7 +18,9 @@ val myTask = tasks.register<MyTask>("myTask") {
     tokenFile.set(layout.buildDirectory.file("token.txt"))
 }
 
-tasks.compileJava.get()
+tasks.jar {
+    from(myTask)
+}
 
 
 // React to plugin application
@@ -35,31 +37,25 @@ plugins.withId("my-version-plugin") {
     }
 }
 
-
-
-
-
 /*
 tasks.named() // Neu und Lazy
-
-
 tasks.getByName() // Alt und Eager
-var z = 5;
-tasks.register("") {
-
-}
-
-tasks.create("") {
-
-}
 */
 
+// Hooks:
+configurations.implementation.get().withDependencies {
+    // directly before dependency resolution
+}
+plugins.withId("some-id") {
+    // after plugins was applied
+}
+gradle.taskGraph.whenReady {
+    // after task graph has been calculated
+}
 
 tasks.test {
     useJUnitPlatform()
 }
-
-
 
 dependencies.constraints {
     api("org.apache.commons:commons-lang3:3.11") {

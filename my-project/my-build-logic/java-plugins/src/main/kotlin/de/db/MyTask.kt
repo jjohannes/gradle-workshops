@@ -5,6 +5,8 @@ import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.*
+import org.gradle.workers.WorkerExecutor
+import javax.inject.Inject
 
 @CacheableTask
 abstract class MyTask : DefaultTask() {
@@ -18,6 +20,9 @@ abstract class MyTask : DefaultTask() {
 
     @get:OutputFile
     abstract val tokenFile: RegularFileProperty
+
+    @get:Inject
+    abstract val worker: WorkerExecutor // <-- Inject a Gradle service
 
     @Internal
     fun getMailPlain(): String {
