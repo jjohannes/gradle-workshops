@@ -1,7 +1,4 @@
 plugins {
-    id("de.db.java-library2") // Convention Plugin
-}
-
-dependencies {
-    implementation(libs.commonsLang)
+    id("my.java-library") // Convention Plugin
+    id("jacoco-report-aggregation")
 }
