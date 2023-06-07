@@ -10,6 +10,20 @@ java {
     toolchain.languageVersion.finalizeValue()
 }
 
+
+tasks.named('compileJava', JavaCompile) {
+    options.release.set(8)
+}
+
+// In Java notation:
+// tasks.named("compile", JavaCompile.class, a -> {
+//    a.options.release.set(8);
+// })
+
+// tasks.compile { !!!! only in Kotlin DSL !!!
+//     options.release.set(8);
+// }
+
 tasks.withType(JavaCompile).configureEach {
     options.release.set(8)
     options.release.finalizeValue()
