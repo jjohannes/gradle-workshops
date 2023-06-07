@@ -5,6 +5,7 @@ plugins {
 }
 
 version = "1.0"
+group = "com.example.myproduct"
 
 java {
     toolchain.languageVersion.convention(JavaLanguageVersion.of(17))

@@ -2,10 +2,50 @@ plugins {
     id("my-java-library")
 }
 
+tasks.named('test', Test) {
+    useJUnitPlatform {
+        excludeTags("abc")
+    }
+    maxParallelForks = 4
+}
+
+tasks.register('test2', Test) {
+    useJUnitPlatform {
+        includeTags("abc")
+    }
+    maxParallelForks = 4
+}
+
+testing {
+    suites.named("test", JvmTestSuite) {
+        useJUnitJupiter("")
+    }
+    suites.register("integrationTest", JvmTestSuite) {
+        dependencies {
+
+        }
+    }
+}
+
 dependencies {
     implementation(platform(project(":platform")))
 
     implementation(project(":data-model"))
     implementation("org.apache.commons:commons-lang3")
     api("org.slf4j:slf4j-api")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+
+    /*
+    // Component Metadata Rules (use instead of exlcudes)
+    components {
+        withModule("org.apache.commons:commons-lang3") {
+            allVariants {
+                withDependencies {
+                    add("...")
+                }
+            }
+        }
+    }
+    */
 }
