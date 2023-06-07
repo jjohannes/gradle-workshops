@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'com.github.spotbugs'
+    id 'project-report'
 }
 
 version = "1.0"

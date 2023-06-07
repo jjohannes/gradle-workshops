@@ -3,5 +3,9 @@ plugins {
 }
 
 dependencies {
+    implementation(platform(project(":platform")))
+
     implementation(project(":data-model"))
+    implementation("org.apache.commons:commons-lang3")
+    api("org.slf4j:slf4j-api")
 }

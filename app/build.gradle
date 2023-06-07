@@ -6,9 +6,27 @@ application {
     mainClass = 'org.example.app.App'
 }
 
+// configurations.configureEach {
+//     resolutionStrategy.failOnVersionConflict()
+// }
+
 dependencies {
+    implementation(platform(project(":platform")))
     implementation project(':business-logic')
+
+
+    implementation('org.slf4j:slf4j-api')
+    implementation("org.apache.commons:commons-lang3")
+
+    // runtimeOnly 'org.slf4j:slf4j-simple:2.0.1'
 }
+
+
+dependencies.constraints {
+    // Override platform constraint
+    implementation("org.apache.commons:commons-lang3:3.7!!")
+}
+
 
 tasks.named('run', JavaExec) {
     jvmArgs("-Xmx4g")
