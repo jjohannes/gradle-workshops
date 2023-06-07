@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    id 'com.github.spotbugs'
+}
+
+version = "1.0"
+
+java {
+    toolchain.languageVersion.convention(JavaLanguageVersion.of(17))
+    toolchain.languageVersion.finalizeValue()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release.set(8)
+    options.release.finalizeValue()
+    options.fork = true
+    options.forkOptions.memoryMaximumSize = "2g"
+}

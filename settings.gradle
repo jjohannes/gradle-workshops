@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+    includeBuild("gradle/plugins")
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        // maven {
+        //     uri = "https://gip.de/repo"
+        // }
+    }
+    // includeBuild("../another-project")
+}
+
+include 'app'
+include 'business-logic'
+include 'data-model'
