@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+version = providers.fileContents(rootProject.layout.projectDirectory
+        .file("version.txt")).asText.get().trim()
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
