@@ -1,11 +1,67 @@
 plugins {
     id 'java'
+    id 'com.github.spotbugs'
 }
 
 version = providers.fileContents(rootProject.layout.projectDirectory
         .file("version.txt")).asText.get().trim()
-// providers.gradleProperty("version").get()
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('test', Test) {
+
+}
+
+tasks.register('count', org.example.Count) {
+    // Inputs
+    jars.from(tasks.named('jar'))
+    version = project.version
+
+    //Output
+    countFile = layout.buildDirectory.file("jar-count.txt")
+}
+
+tasks.register('bundle', Zip) {
+    from(tasks.named('count'))
+    into('libs') {
+        from(tasks.named('jar'))
+    }
+    destinationDirectory = layout.buildDirectory.dir("out")
+}
+
+tasks.named('build') {
+    dependsOn(tasks.named('count'))
+}
+
+
+//Old APIs fot task configuration – AVOID!
+
+/*
+tasks.compileJava { // OK in Kotlin DSL (not Groovy!)
+    options.encoding = 'UTF-8'
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('compileJava', JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.getByName("compileJava") {
+    options.encoding = 'UTF-8'
+}
+
+tasks.create('bundle2', Zip) {
+}
+
+task bundle3 {
+}
+*/
