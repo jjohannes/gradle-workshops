@@ -14,7 +14,12 @@ java {
 dependencies {
     testImplementation(testFixtures(project(':data-model')))
 
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
     testImplementation(project(':data-model')) {
-        capabilities { requireCapabilities("${project.group}:${project.name}-test-utils") }
+        capabilities {
+            requireCapabilities("${project.group}:${project.name}-test-utils")
+        }
     }
 }

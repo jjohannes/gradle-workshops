@@ -15,6 +15,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 tasks.named('test', Test) {
+    useJUnitPlatform() // JUnit 5
 
 }
 
