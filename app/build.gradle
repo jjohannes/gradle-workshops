@@ -5,3 +5,7 @@ plugins {
 application {
     mainClass.set("org.example.app.App")
 }
+
+dependencies {
+    implementation project(':business-logic')
+}

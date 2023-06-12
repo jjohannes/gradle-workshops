@@ -4,6 +4,7 @@ plugins {
 
 version = providers.fileContents(rootProject.layout.projectDirectory
         .file("version.txt")).asText.get().trim()
+// providers.gradleProperty("version").get()
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
