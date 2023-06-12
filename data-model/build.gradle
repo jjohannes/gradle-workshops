@@ -1,3 +1,20 @@
 plugins {
     id 'my-java-library'
+    id 'java-test-fixtures'
+}
+
+
+def testUtils = sourceSets.create("testUtils")
+java {
+    registerFeature("testUtils") {
+        usingSourceSet(testUtils)
+    }
+}
+
+dependencies {
+    testImplementation(testFixtures(project(':data-model')))
+
+    testImplementation(project(':data-model')) {
+        capabilities { requireCapabilities("${project.group}:${project.name}-test-utils") }
+    }
 }
