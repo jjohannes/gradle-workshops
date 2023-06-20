@@ -25,3 +25,7 @@ rootProject.name = 'gradle-workshop'
 include(':app', ':business-logic', ':data-model')
 
 // project(':app').projectDir = file("components/app")
+
+// buildCache {
+//
+// }
