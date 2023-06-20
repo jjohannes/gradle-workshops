@@ -1,8 +1,14 @@
 plugins {
     id 'my-java-library'
+    id 'test-report-aggregation'
 }
 
 dependencies {
     implementation(project(":data-model"))
     implementation('org.apache.commons:commons-lang3:3.6')
+
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.9.3')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.3')
+
+    integrationTestImplementation('org.junit.jupiter:junit-jupiter-api:5.9.3')
 }
