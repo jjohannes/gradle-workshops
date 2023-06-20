@@ -1,0 +1,27 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        // maven {
+        //     url = "https://mycompany.com/repo"
+        // }
+    }
+    includeBuild("gradle/plugins")
+}
+plugins {
+    // ...
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        // maven {
+        //     url = "https://mycompany.com/repo"
+        // }
+    }
+    // includeBuild("../other-gradle-project")
+}
+
+rootProject.name = 'gradle-workshop'
+include(':app', ':business-logic', ':data-model')
+
+// project(':app').projectDir = file("components/app")
