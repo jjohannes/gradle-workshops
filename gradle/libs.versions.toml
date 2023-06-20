@@ -1,0 +1,2 @@
+[libraries]
+commons-lang3 = 'org.apache.commons:commons-lang3:3.6'

@@ -19,6 +19,12 @@ dependencyResolutionManagement {
         // }
     }
     // includeBuild("../other-gradle-project")
+
+    // versionCatalogs {
+    //     create("libs") {
+    //         library("commons.lang3", "org.apache.commons:commons-lang3:3.6")
+    //     }
+    // }
 }
 
 rootProject.name = 'gradle-workshop'
