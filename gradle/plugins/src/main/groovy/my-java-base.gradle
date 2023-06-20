@@ -6,6 +6,60 @@ java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
-tasks.named('test') {
+tasks.named('test', Test) {
     useJUnitPlatform() // JUnit 5
 }
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+// OLD Task creation - do not use
+// tasks.create('bundleOld', Zip) {
+//     from(layout.projectDirectory.file('info.txt'))
+//     from(tasks.named('jar'))
+//     from(configurations.runtimeClasspath)
+//
+//     // dependsOn(tasks.named('jar'))
+//     // from(layout.buildDirectory.file("libs/app.jar"))
+//
+//     destinationDirectory = layout.buildDirectory.dir('out')
+//     println("eager")
+// }
+
+tasks.register('generateInfo', org.example.MyTask) {
+    infoInput = layout.projectDirectory.file('info.txt')
+    outputInfoText = layout.buildDirectory.file('info-extended.txt')
+
+    // Dynamically extend tasks:
+    // doLast {
+    //
+    // }
+}
+
+tasks.register('bundle', Zip) {
+    from(tasks.named('generateInfo'))
+    from(tasks.named('jar'))
+    from(configurations.runtimeClasspath)
+
+    // dependsOn(tasks.named('jar'))
+    // from(layout.buildDirectory.file("libs/app.jar"))
+
+    destinationDirectory = layout.buildDirectory.dir('out')
+    println("lazy")
+}
+
+tasks.register('distribute', Copy) {
+    from(tasks.named('bundle'))
+    destinationDir = layout.buildDirectory.dir('dist').get().asFile
+}
+
+// tasks.named('compileJava', JavaCompile) {
+//
+// }
+//
+// tasks.named('compileTestJava', JavaCompile) {
+//
+// }
+
+
