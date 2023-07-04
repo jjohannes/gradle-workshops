@@ -1,0 +1,24 @@
+
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+  }
+  includeBuild("gradle/plugins")
+}
+
+dependencyResolutionManagement {
+  repositories {
+    mavenCentral()
+    // maven {
+    //   url = "https://example.org/repo"
+    // }
+  }
+  // includeBuild("../other-gradle-project")
+}
+
+
+
+
+include(':app')
+include(':business-logic')
+include(':data-model')
