@@ -2,3 +2,7 @@ plugins {
   id 'my-java-base'
   id 'application'
 }
+
+tasks.register("distZip2", Zip) {
+  from(configurations.runtimeClasspath)
+}

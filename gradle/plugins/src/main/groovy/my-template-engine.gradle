@@ -1,0 +1,46 @@
+import org.example.gradlebuild.TemplateEngine
+
+plugins {
+  id 'my-java-base'
+}
+
+plugins.withId('idea') {
+  // tweak IDEA Sync
+}
+
+// OLD APIs - avoid!
+// task "myTask"(dependsOn: "compileJava")
+// tasks.create()
+// tasks.getByName()
+
+
+tasks.register('processTemplate', TemplateEngine) {
+  group = "mybuild"
+
+  template.set(layout.projectDirectory.file("MessageTemplate.java"))
+  data.set(layout.projectDirectory.file("data.properties"))
+
+  javaSourceFile.set(layout.buildDirectory.file("Message.java"))
+}
+// Java Notation:
+// tasks.register('processTemplate', TemplateEngine.class, {
+//  group = "mybuild"
+//
+//  getTemplate().set(layout.projectDirectory.file("MessageTemplate.java"))
+//  getData().set(layout.projectDirectory.file("data.properties"))
+//
+//  getJavaSourceFile().set(layout.buildDirectory.file("Message.java"))
+// });
+
+tasks.named('compileJava', JavaCompile) {
+  source(tasks.named('processTemplate'))
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = "UTF-8"
+}
+
+tasks.named('build') { // "Lifecycle Task"
+  dependsOn(tasks.named('processTemplate'))
+}
+
