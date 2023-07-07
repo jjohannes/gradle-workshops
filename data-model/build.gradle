@@ -1,8 +1,0 @@
-plugins {
-  id 'my-java-library'
-  id 'my-template-engine'
-}
-
-dependencies {
-  implementation platform(project(':versions'))
-}
