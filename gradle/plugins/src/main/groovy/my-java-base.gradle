@@ -7,3 +7,11 @@ java {
   toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
+tasks.named('compileJava', JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+// Notation in Java:
+// project.getTasks().named("compileJava", JavaCompile.class, t -> {
+//   t.getOptions().setEncoding("UTF-8");
+// });

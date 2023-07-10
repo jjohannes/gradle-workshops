@@ -1,5 +1,7 @@
 package org.example.service;
 
-public class MessageService {
+import org.example.Message;
 
+public class MessageService {
+    Message m;
 }
