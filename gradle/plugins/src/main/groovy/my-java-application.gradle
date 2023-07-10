@@ -2,3 +2,31 @@ plugins {
   id 'my-java-base'
   id 'application'
 }
+
+// def abc = "something"
+
+tasks.register('bundle', Zip) {
+  group = 'mygroup'
+  description = 'Does things'
+
+  // from(layout.projectDirectory.file("build/libs/app.jar"))
+  from(tasks.named('jar', Jar).flatMap { it.archiveFile })
+
+  destinationDirectory.set(layout.buildDirectory.dir("bundles"))
+}
+
+// providers.environmentVariable()
+// providers.gradleProperty()
+
+tasks.register('countJars', org.example.JarCount) {
+  group = 'mygroup'
+
+  extraText.set('some text')
+
+  jars.from(tasks.named('jar', Jar))
+
+  jars.from(configurations.runtimeClasspath)
+
+  countFile.set(layout.buildDirectory.file('jar-count.txt'))
+}
+
