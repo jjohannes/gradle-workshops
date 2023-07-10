@@ -4,13 +4,25 @@ pluginManagement {
     gradlePluginPortal()
     // mavenCentral()
     // maven {
-    //   uri = "https://example.org/repo"
+    //   url = "https://example.org/repo"
     // }
   }
   includeBuild("gradle/plugins")
+}
+
+dependencyResolutionManagement {
+  repositories {
+    mavenCentral()
+    // maven {
+    //   url = 'file://loca-repo'
+    // }
+  }
+  // includeBuild('../other-project')
 }
 
 
 include(":app")
 include(":business-logic")
 include(":data")
+
+include(":my-platform")
