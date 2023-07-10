@@ -1,0 +1,16 @@
+
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    // mavenCentral()
+    // maven {
+    //   uri = "https://example.org/repo"
+    // }
+  }
+  includeBuild("gradle/plugins")
+}
+
+
+include(":app")
+include(":business-logic")
+include(":data")
