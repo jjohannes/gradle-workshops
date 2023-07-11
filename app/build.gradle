@@ -10,8 +10,9 @@ dependencies {
   implementation platform(project(":my-platform"))
 
   implementation project(':business-logic')
+  implementation project(':data')
 
-  runtimeOnly 'org.slf4j:slf4j-simple:2.0.7'
+  runtimeOnly 'org.slf4j:slf4j-simple'
 
   implementation 'org.apache.commons:commons-lang3'
 
