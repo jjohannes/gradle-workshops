@@ -1,0 +1,30 @@
+plugins {
+  id 'java'
+}
+
+java {
+  toolchain.languageVersion = JavaLanguageVersion.of(11)
+}
+
+tasks.named('compileJava', JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+tasks.named('compileTestJava', JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+}
+
+tasks.register('packageApplication', Zip) {
+  group = 'mygroup'
+  description = 'packages things'
+
+  // dependsOn tasks.named('jar')
+
+  from(layout.projectDirectory.dir('src/main/java'))
+  from(tasks.named('jar'))
+  destinationDirectory = layout.buildDirectory.dir("packaged")
+}
