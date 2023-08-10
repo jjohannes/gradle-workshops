@@ -26,8 +26,9 @@ tasks.register('packageApplication', Zip) {
 
   // dependsOn tasks.named('jar')
 
-  from(layout.projectDirectory.dir('src/main/java'))
+  // from(layout.projectDirectory.dir('src/main/java'))
   from(tasks.named('jar'))
+  from(configurations.runtimeClasspath)
   destinationDirectory = layout.buildDirectory.dir("packaged")
 }
 
