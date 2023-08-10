@@ -1,3 +1,5 @@
+import org.example.gradlebuild.Count
+
 plugins {
   id 'java'
 }
@@ -27,4 +29,14 @@ tasks.register('packageApplication', Zip) {
   from(layout.projectDirectory.dir('src/main/java'))
   from(tasks.named('jar'))
   destinationDirectory = layout.buildDirectory.dir("packaged")
+}
+
+tasks.register('countJars', Count) {
+  group = 'mygroup'
+  text = 'some text'
+
+  filesToCount.from(configurations.runtimeClasspath)
+  filesToCount.from(tasks.named('jar'))
+
+  countTxtFile = layout.buildDirectory.file("count.txt")
 }
