@@ -1,0 +1,15 @@
+plugins {
+  id 'application'
+}
+
+java {
+  toolchain.languageVersion == JavaLanguageVersion.of(11)
+}
+
+application {
+  mainClass = 'org.example.app.App'
+}
+
+dependencies {
+  implementation project(':business-logic')
+}
