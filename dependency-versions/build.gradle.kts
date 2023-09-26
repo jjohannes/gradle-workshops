@@ -14,4 +14,5 @@ dependencies.constraints {
     }
     api("org.apache.commons:commons-text:1.5")
     api("org.slf4j:slf4j-api:2.0.7")
+    api("org.slf4j:slf4j-simple:2.0.7")
 }
