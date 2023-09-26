@@ -5,11 +5,11 @@ plugins {
 javaPlatform.allowDependencies()
 
 dependencies {
-    api(platform("org.springframework.boot:spring-boot-dependencies:3.1.4"))
+   // api(platform("org.springframework.boot:spring-boot-dependencies:3.1.4"))
 }
 
 dependencies.constraints {
-    api("org.apache.commons:commons-lang3:3.13.0") {
+    api("org.apache.commons:commons-lang3:3.6") {
         // version { require("3.13.0") }
     }
     api("org.apache.commons:commons-text:1.5")
