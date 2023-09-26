@@ -10,7 +10,7 @@ abstract class CountFiles : DefaultTask() {
 
     // @get:InputFiles
     @get:Classpath
-    @get:PathSensitive(PathSensitivity.NONE)
+    // @get:PathSensitive(PathSensitivity.NONE)
     abstract val filesToCount : ConfigurableFileCollection
 
     @get:OutputFile
