@@ -3,7 +3,9 @@ plugins {
 }
 
 dependencies {
+    implementation(platform(project(":dependency-versions")))
+
     api(project(":data-model"))
-    implementation("org.apache.commons:commons-text:1.5")
-    implementation("org.slf4j:slf4j-api:2.0.7")
+    implementation("org.apache.commons:commons-text")
+    implementation("org.slf4j:slf4j-api")
 }
