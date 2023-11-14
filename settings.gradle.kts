@@ -4,6 +4,5 @@ dependencyResolutionManagement {
     }
 }
 
-includeBuild("platform")
-
+include("platform")
 include("core")

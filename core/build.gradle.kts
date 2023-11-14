@@ -9,7 +9,7 @@ version = "1.0"
 val meta = configurations.create("meta")
 
 dependencies {
-    api(platform("org.example:platform:1.0"))
+    api(platform(project(":platform")))
 
     implementation("org.apache.commons:commons-text")
 
