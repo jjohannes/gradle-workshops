@@ -6,19 +6,24 @@ plugins {
 group = "org.example"
 version = "1.0"
 
+val meta = configurations.create("meta")
+
 dependencies {
-    api(platform("org.example:platform"))
+    api(platform("org.example:platform:1.0"))
 
     implementation("org.apache.commons:commons-text")
+
+    meta(platform("org.example:platform:1.0"))
+    meta("org.apache.commons:commons-text")
 }
 
 publishing {
     publications.create<MavenPublication>("maven") {
-        versionMapping {
-            allVariants {
-                fromResolutionResult()
-            }
-        }
+        // versionMapping {
+        //     allVariants {
+        //         fromResolutionResult()
+        //     }
+        // }
         from(components["java"])
     }
     repositories {
