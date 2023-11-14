@@ -1,2 +1,9 @@
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
 
-include("app")
+includeBuild("platform")
+
+include("core")
