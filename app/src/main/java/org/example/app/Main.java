@@ -6,6 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         new MessageService();
-        System.out.println("Hey :)");
+        System.out.println("Hey ;)");
     }
 }
