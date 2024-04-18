@@ -1,4 +1,9 @@
-
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+    includeBuild("gradle/plugins")
+}
 
 
 include("app")
