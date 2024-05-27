@@ -1,11 +1,8 @@
 plugins {
-    id("application")
+    id("my-java-application")
 }
 
 application {
     mainClass = "org.example.app.Main"
 }
 
-java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
-}
