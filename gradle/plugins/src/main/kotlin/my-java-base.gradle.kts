@@ -2,6 +2,22 @@ plugins {
     id("java")
 }
 
+val qualityCheck = tasks.register("qualityCheck") {
+    group = "build"
+    dependsOn(tasks.jar)
+    // dependsOn("")
+}
+
+tasks.jar {
+    setGroup(null)
+}
+
+tasks.check {
+    dependsOn(tasks.assemble)
+    dependsOn(qualityCheck)
+}
+
+
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
 }
@@ -18,4 +34,12 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
 }
 
-// tasks.register()
+sourceSets.main {
+    resources {
+        // include()
+    }
+}
+
+tasks.processResources {
+    from("build.gradle.kts")
+}
