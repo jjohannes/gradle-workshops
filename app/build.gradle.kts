@@ -6,3 +6,7 @@ application {
     mainClass = "org.example.app.Main"
 }
 
+dependencies {
+    implementation(project(":logic"))
+}
+
