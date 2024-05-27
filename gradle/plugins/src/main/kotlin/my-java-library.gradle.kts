@@ -1,9 +1,5 @@
 plugins {
-    id("application")
-}
-
-application {
-    mainClass = "org.example.app.Main"
+    id("java-library")
 }
 
 java {
