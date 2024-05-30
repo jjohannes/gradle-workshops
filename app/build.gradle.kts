@@ -7,6 +7,8 @@ application {
 }
 
 dependencies {
+    implementation(libs.commons.lang)
+    implementation(libs.commons.text)
+
     implementation(project(":logic"))
 }
-
