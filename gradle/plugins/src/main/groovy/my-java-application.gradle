@@ -2,3 +2,25 @@ plugins {
     id 'application'
     id 'my-java-compile'
 }
+
+tasks.register('count', JarCount) {
+    group = 'build'
+    jarFiles.from(tasks.named('jar'))
+    jarFiles.from(configurations.runtimeClasspath)
+    countFile = layout.buildDirectory.file("counted.txt")
+}
+
+tasks.register('zipConfig', Zip) {
+    group = 'build'
+
+    // Root folder of the whole project:
+    // -> isolated.rootProject.projectDirectory
+
+    from(layout.projectDirectory.file('build.gradle'))
+
+    destinationDirectory = layout.buildDirectory.dir("zips")
+}
+
+tasks.named('jar', Jar) {
+    from(tasks.named('zipConfig'))
+}

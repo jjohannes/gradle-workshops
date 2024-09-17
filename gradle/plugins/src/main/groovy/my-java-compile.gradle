@@ -5,3 +5,19 @@ plugins {
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(11)
 }
+
+// Old ways to configure tasks:
+compileJava {
+    options.encoding = 'UTF-8'
+}
+tasks.compileJava {
+    options.encoding = 'UTF-8'
+}
+
+// New/best way to configure tasks
+tasks.named('compileJava', JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
