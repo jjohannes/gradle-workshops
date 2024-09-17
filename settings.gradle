@@ -1,7 +1,17 @@
 pluginManagement {
     includeBuild 'gradle/plugins'
 }
+plugins {
+    // https://github.com/autonomousapps/dependency-analysis-gradle-plugin
+    id("com.autonomousapps.build-health") version "2.0.2"
+    // Task: ./gradlew buildHealth
+}
 
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
 
 include ':app'
 include ':business-logic'

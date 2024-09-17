@@ -1,3 +1,11 @@
 plugins {
     id 'groovy-gradle-plugin'
 }
+
+repositories {
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation 'com.autonomousapps:dependency-analysis-gradle-plugin:2.0.2'
+}

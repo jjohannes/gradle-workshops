@@ -2,3 +2,8 @@ plugins {
     // id 'java'
     id 'my-java-library'
 }
+
+dependencies {
+    // api 'org.apache.commons:commons-lang3:3.10'
+    implementation 'org.apache.commons:commons-text:1.9'
+}
