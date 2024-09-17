@@ -1,0 +1,10 @@
+pluginManagement {
+    includeBuild 'gradle/plugins'
+}
+
+
+include ':app'
+include ':business-logic'
+include ':data-model'
+
+// project(':data-model').projectDir = file("base/data-model")
