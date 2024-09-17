@@ -7,6 +7,13 @@ plugins {
     // Task: ./gradlew buildHealth
 }
 
+dependencyAnalysis {
+    // https://github.com/autonomousapps/dependency-analysis-gradle-plugin/wiki/Customizing-plugin-behavior#failure-conditions-and-filtering
+    issues {
+        all { onAny { severity 'fail' }  }
+    }
+}
+
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
