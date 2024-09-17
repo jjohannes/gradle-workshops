@@ -18,6 +18,9 @@ dependencyResolutionManagement {
     repositories {
         mavenCentral()
     }
+    // versionCatalogs {
+    //     create("libs").from("abc:name:1.0")
+    // }
 }
 
 include ':app'

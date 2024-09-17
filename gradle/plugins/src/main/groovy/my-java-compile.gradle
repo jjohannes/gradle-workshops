@@ -7,6 +7,18 @@ java {
     toolchain.languageVersion = JavaLanguageVersion.of(11)
 }
 
+// Allow upgrading/downgrading (transitive) versions via catalog by adding strict constraints
+// dependencies.constraints {
+//     def libs = versionCatalogs.named("libs")
+//     def catalogEntries = libs.libraryAliases.collect { libs.findLibrary(it).get().get() }
+//     catalogEntries.forEach { entry ->
+//         def version = entry.version
+//         if (version != null) {
+//             implementation(entry) { it.version { strictly(version) } }
+//         }
+//     }
+// }
+
 // Old ways to configure tasks:
 compileJava {
     options.encoding = 'UTF-8'

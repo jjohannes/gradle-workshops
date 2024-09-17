@@ -4,6 +4,8 @@ plugins {
 }
 
 dependencies {
-    // api 'org.apache.commons:commons-lang3:3.10'
-    implementation 'org.apache.commons:commons-text:1.9'
+    api platform('io.quarkus:quarkus-bom:3.14.4')
+
+    api 'org.apache.commons:commons-lang3'
+    implementation 'org.apache.commons:commons-text'
 }

@@ -6,7 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 public class Message {
 
     public void convert(StringUtils util) {
-
         // CaseUtils c;
     }
 
