@@ -8,6 +8,7 @@ tasks.register('count', JarCount) {
     jarFiles.from(tasks.named('jar'))
     jarFiles.from(configurations.runtimeClasspath)
     countFile = layout.buildDirectory.file("counted.txt")
+    withCoverage = providers.gradleProperty("coverage")
 }
 
 tasks.register('zipConfig', Zip) {
@@ -22,5 +23,29 @@ tasks.register('zipConfig', Zip) {
 }
 
 tasks.named('jar', Jar) {
+    doFirst {
+        println("First")
+    }
     from(tasks.named('zipConfig'))
+    doLast {
+        println("Last")
+    }
+}
+
+// ./gradlew -Dorg.gradle.debug=true
+
+tasks.register('stage1') {
+    dependsOn(tasks.named('count'))
+    dependsOn(tasks.withType(JavaCompile))
+}
+
+tasks.register('stage2') {
+    println("stage2 - a")
+    doLast {
+        println("stage2 - b")
+    }
+    // enabled = false
+    // onlyIf {
+    //
+    // }
 }
