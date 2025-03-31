@@ -1,6 +1,0 @@
-[versions]
-text = "1.9"
-
-[libraries]
-commons-lang = { module = "org.apache.commons:commons-lang3", version = "3.10" }
-commons-text = { module = "org.apache.commons:commons-text", version.ref = "text" }
