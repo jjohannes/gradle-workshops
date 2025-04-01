@@ -1,6 +1,23 @@
+import com.exmaple.gradle.CountTask
+import java.time.LocalDateTime
+
 plugins {
     id("com.example.java-version")
     id("application")
+}
+
+tasks.register<CountTask>("count") {
+    group = "example"
+
+    // providers.fileContents(layout.projectDirectory.file("my.config")).asText.get();
+    // val gitInfo = providers.exec { commandLine("date") }.standardOutput.asText.get();
+
+
+    info = "Counting things";
+    filesToCount.from(configurations.runtimeClasspath)
+    filesToCount.from(tasks.jar)
+
+    countFile = layout.buildDirectory.file("count.txt")
 }
 
 tasks.register<Zip>("bundle") {
