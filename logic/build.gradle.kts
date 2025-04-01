@@ -1,7 +1,3 @@
 plugins {
-    id("java-library")
-}
-
-java {
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    id("com.example.java-library")
 }
