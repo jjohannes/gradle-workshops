@@ -1,19 +1,29 @@
 import com.exmaple.gradle.CountTask
-import java.time.LocalDateTime
 
 plugins {
     id("com.example.java-version")
     id("application")
 }
 
+tasks.withType<JavaCompile>().configureEach {
+    options.encoding = "UTF-8"
+}
+tasks.compileJava {
+    options.encoding = "UTF-8"
+}
+tasks.compileTestJava {
+    options.encoding = "UTF-8"
+}
+
 tasks.register<CountTask>("count") {
     group = "example"
+
+    // onlyIf {  }
 
     // providers.fileContents(layout.projectDirectory.file("my.config")).asText.get();
     // val gitInfo = providers.exec { commandLine("date") }.standardOutput.asText.get();
 
-
-    info = "Counting things";
+    info = tasks.jar.flatMap { it.archiveFileName }
     filesToCount.from(configurations.runtimeClasspath)
     filesToCount.from(tasks.jar)
 
