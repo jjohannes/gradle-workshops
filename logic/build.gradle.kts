@@ -5,3 +5,7 @@ plugins {
 dependencies {
     implementation(project(":data"))
 }
+
+tasks.compileJava {
+    // classpath = files()
+}

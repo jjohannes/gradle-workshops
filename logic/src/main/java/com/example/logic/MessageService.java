@@ -1,5 +1,7 @@
 package com.example.logic;
 
+import com.example.data.Message;
+
 public class MessageService {
-    public String x;
+    public Message x;
 }
