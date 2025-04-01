@@ -5,3 +5,7 @@ plugins {
 application {
     mainClass = "com.example.app.App"
 }
+
+dependencies {
+    implementation(project(":logic"))
+}
