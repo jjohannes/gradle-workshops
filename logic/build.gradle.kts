@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":data"))
-}
-
-tasks.compileJava {
-    // classpath = files()
+    // implementation
+    // api
+    // runtimeOnly
+    // compileOnly (compileOnlyApi)
+    api(project(":data"))
 }
