@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    implementation(libs.commons.lang3)
+    api(libs.commons.lang3)
 }

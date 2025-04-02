@@ -10,6 +10,7 @@ public class MessageService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageService.class);
 
     public void useService(Message m) {
+        // String x = StringUtils.EMPTY;
         StringEscapeUtils.escapeJava("abc");
         m.print();
         LOGGER.info("Printed Message");

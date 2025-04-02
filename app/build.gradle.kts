@@ -9,5 +9,6 @@ application {
 dependencies {
     implementation(project(":logic"))
     implementation(libs.commons.lang3)
-    // runtimeOnly(libs.slf4j.simple)
+
+    runtimeOnly(libs.slf4j.simple)
 }

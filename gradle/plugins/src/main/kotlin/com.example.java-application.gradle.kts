@@ -3,6 +3,7 @@ import com.exmaple.gradle.CountTask
 plugins {
     id("com.example.java-version")
     id("application")
+    id("com.autonomousapps.dependency-analysis")
 }
 
 tasks.withType<JavaCompile>().configureEach {

@@ -4,10 +4,19 @@ pluginManagement {
 
     }
 }
+// plugins {
+//     id("org.example.build")
+// }
+
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
         // maven("https://example.org/repo")
+    }
+    versionCatalogs {
+        // create("libs") {
+        //     from("org.example:catalog:1.0")
+        // }
     }
 }
 
