@@ -1,5 +1,7 @@
 package com.example.data;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Message {
     private final String m;
 
@@ -8,6 +10,6 @@ public class Message {
     }
 
     public void print() {
-        System.out.println(m);
+        System.out.println(m + StringUtils.EMPTY);
     }
 }

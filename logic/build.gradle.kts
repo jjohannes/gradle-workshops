@@ -3,9 +3,12 @@ plugins {
 }
 
 dependencies {
-    // implementation
-    // api
-    // runtimeOnly
-    // compileOnly (compileOnlyApi)
     api(project(":data"))
+    implementation(libs.commons.text)
+    implementation(libs.slf4j.api)
 }
+
+// implementation
+// api
+// runtimeOnly
+// compileOnly (compileOnlyApi)
