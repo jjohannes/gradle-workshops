@@ -1,28 +1,15 @@
-pluginManagement {
-    includeBuild("gradle/plugins")
-    // includeBuild("../own-gradle-plugins")
-    repositories {
-        // maven("https://example.org/repo")
-    }
-}
-
-// plugins {
-//     id("org.example.build")
-// }
-
 dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        // maven("https://example.org/repo")
-    }
-    // includeBuild("../framework")
-    versionCatalogs {
-        // create("libs") {
-        //     from("org.example:catalog:1.0")
-        // }
-    }
+    repositories.mavenCentral()
 }
 
-include("app")
-include("logic")
-include("data")
+include(":model")
+project(":model").projectDir = file("jamcatch/model")
+
+include(":engine")
+project(":engine").projectDir = file("jamcatch/engine")
+
+include(":game")
+project(":game").projectDir = file("jamcatch/game")
+
+include(":renderer")
+project(":renderer").projectDir = file("jamcatch/renderer")
