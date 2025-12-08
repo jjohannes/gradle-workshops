@@ -1,11 +1,7 @@
 plugins {
-    id("java-library")
+    id("my-java-library")
 }
 
 dependencies {
     implementation(project(":model"))
-}
-
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }

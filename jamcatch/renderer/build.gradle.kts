@@ -1,11 +1,6 @@
 plugins {
-    id("java-library")
-    id("org.gradlex.jvm-dependency-conflict-resolution") version "2.5"
-}
-
-
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    id("my-java-library")
+    id("feature-spring-boot")
 }
 
 dependencies  {
