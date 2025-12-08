@@ -1,6 +1,5 @@
 plugins {
     id("my-java-library")
-    id("feature-spring-boot")
 }
 
 dependencies  {
