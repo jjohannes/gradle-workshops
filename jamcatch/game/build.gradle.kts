@@ -1,7 +1,5 @@
 plugins {
     id("my-java-application")
-    id("org.gradlex.jvm-dependency-conflict-resolution") version "2.5"
-    id("io.mvnpm.gradle.plugin.native-java-plugin") version "1.0.0"
 }
 
 dependencies {
