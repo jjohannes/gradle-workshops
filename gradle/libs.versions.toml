@@ -1,0 +1,10 @@
+[libraries]
+commons-csv = { module = "org.apache.commons:commons-csv", version = "1.14.1" }
+commons-io = { module = "commons-io:commons-io", version = "2.21.0"}
+slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }
+lwjgl = { module = "org.lwjgl:lwjgl", version = "3.3.6" }
+
+#  api("org.apache.commons:commons-csv:1.14.1")
+#    api("commons-io:commons-io:2.21.0")
+#    api("org.slf4j:slf4j-api:2.0.17")
+#    api("org.lwjgl:lwjgl:3.3.6")

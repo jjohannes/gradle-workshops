@@ -5,7 +5,8 @@ plugins {
 dependencies {
     implementation(project(":model"))
     implementation(project(":engine"))
-    implementation("org.apache.commons:commons-csv")
+    // implementation("org.apache.commons:commons-csv")
+    implementation(libs.commons.csv)
     implementation("org.slf4j:slf4j-api")
 
     runtimeOnly(project(":renderer"))
