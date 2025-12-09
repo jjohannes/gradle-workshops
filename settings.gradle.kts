@@ -20,3 +20,7 @@ project(":game").projectDir = file("jamcatch/game")
 
 include(":renderer")
 project(":renderer").projectDir = file("jamcatch/renderer")
+
+// Platform / BOM
+include(":versions")
+project(":versions").projectDir = file("gradle/versions")

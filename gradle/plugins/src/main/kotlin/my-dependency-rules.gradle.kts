@@ -5,6 +5,10 @@ plugins {
     id("com.autonomousapps.dependency-analysis")
 }
 
+dependencies {
+    implementation(platform(project(":versions")))
+}
+
 jvmDependencyConflicts {
     consistentResolution {
         providesVersions(":game")
