@@ -8,6 +8,22 @@ plugins {
 //     useJUnitPlatform()
 // }
 
+sourceSets {
+    main {
+        // java.srcDir(tasks.named("codeGen"))
+    }
+}
+
+// sourceSets.register("mynew")
+
+tasks.compileJava {
+    // dependsOn(tasks.named("codeGen"))
+}
+
+java {
+
+}
+
 testing {
     suites {
         named<JvmTestSuite>("test") {

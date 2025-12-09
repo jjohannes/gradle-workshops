@@ -1,5 +1,6 @@
 plugins {
     id("my-java-application")
+    // alias(libs.plugins.dep.resolve)
 }
 
 dependencies {
