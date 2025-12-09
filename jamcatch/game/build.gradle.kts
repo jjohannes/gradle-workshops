@@ -13,6 +13,8 @@ dependencies {
     runtimeOnly(project(":renderer"))
     runtimeOnly("org.slf4j:slf4j-simple")
 
+    testImplementation(testFixtures("org.example:engine"))
+
     // runtimeOnly("org.slf4j:slf4j-jdk14")
     // implementation("org.slf4j:slf4j-api:2.16.1!!") <-- strict version
     // implementation("org.slf4j:slf4j-api") {
