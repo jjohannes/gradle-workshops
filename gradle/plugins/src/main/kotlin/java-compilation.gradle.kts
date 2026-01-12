@@ -1,5 +1,10 @@
 plugins {
     id("java")
+    id("com.diffplug.spotless")
+}
+
+spotless {
+    java { palantirJavaFormat() }
 }
 
 java {
