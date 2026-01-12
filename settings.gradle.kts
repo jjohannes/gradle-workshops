@@ -1,3 +1,17 @@
+pluginManagement {
+    // repositories {
+    //     gradlePluginPortal()
+    // }
+    includeBuild("gradle/plugins")
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        // maven("https://some.com/repo")
+    }
+}
+
 include(":model")
 include(":engine")
 include(":renderer")

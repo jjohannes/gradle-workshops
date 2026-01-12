@@ -1,4 +1,3 @@
 plugins {
-    // id("java")
-    id("java-library")
+    id("my-java-library")
 }
