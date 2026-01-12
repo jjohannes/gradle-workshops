@@ -33,3 +33,11 @@ tasks.register("bundle", Zip::class) {
     // destinationDir = layout.buildDirectory.dir("bundle_dir").get().asFile
     destinationDirectory = layout.buildDirectory.dir("bundle")
 }
+
+tasks.register("countJars", JarCount::class) {
+    group = "my"
+    header = "Counting:"
+    filesToCount.from(tasks.jar)
+    filesToCount.from(configurations.runtimeClasspath)
+    countTextFile = layout.buildDirectory.file("count.txt")
+}
