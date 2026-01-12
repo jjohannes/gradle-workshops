@@ -41,3 +41,7 @@ tasks.register("countJars", JarCount::class) {
     filesToCount.from(configurations.runtimeClasspath)
     countTextFile = layout.buildDirectory.file("count.txt")
 }
+
+// tasks.jar {
+//     from(tasks.named("countJars"))
+// }
