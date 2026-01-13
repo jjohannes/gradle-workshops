@@ -6,10 +6,7 @@ plugins {
     id("com.autonomousapps.dependency-analysis")
 }
 
-spotless {
-    java { palantirJavaFormat() }
-}
-
+// configure compilation
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
 }
@@ -19,6 +16,14 @@ tasks.compileJava { // == tasks.named("compileJava")
     options.compilerArgs.add("-Xlint:all")
 }
 
+// configure testing
 tasks.test {
     useJUnitPlatform()
+}
+
+// configure code formatting
+spotless {
+    java {
+        palantirJavaFormat()
+    }
 }
