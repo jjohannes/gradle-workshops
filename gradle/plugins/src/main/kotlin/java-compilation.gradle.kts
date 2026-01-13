@@ -3,6 +3,7 @@ plugins {
     id("com.diffplug.spotless")
     id("org.gradlex.jvm-dependency-conflict-resolution")
     id("io.mvnpm.gradle.plugin.native-java-plugin")
+    id("com.autonomousapps.dependency-analysis")
 }
 
 spotless {
