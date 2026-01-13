@@ -6,6 +6,15 @@ plugins {
     id("com.autonomousapps.dependency-analysis")
 }
 
+jvmDependencyConflicts {
+    patch {
+        module("org.apache.commons:commons-csv") {
+            reduceToRuntimeOnlyDependency("commons-codec:commons-codec")
+            reduceToRuntimeOnlyDependency("commons-io:commons-io")
+        }
+    }
+}
+
 // configure compilation
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
