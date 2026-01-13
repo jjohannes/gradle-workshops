@@ -18,3 +18,7 @@ tasks.compileJava { // == tasks.named("compileJava")
     options.encoding = "UTF-8"
     options.compilerArgs.add("-Xlint:all")
 }
+
+tasks.test {
+    useJUnitPlatform()
+}
