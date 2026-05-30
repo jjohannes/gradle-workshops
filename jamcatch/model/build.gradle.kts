@@ -1,3 +1,3 @@
 plugins {
-    id("my-java-library")
+    id("my-kmp-library")
 }

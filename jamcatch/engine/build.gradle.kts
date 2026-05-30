@@ -1,7 +1,7 @@
 plugins {
-    id("my-java-library")
+    id("my-kmp-library")
 }
 
 dependencies {
-    api(project(":model"))
+    commonMainApi(project(":model"))
 }

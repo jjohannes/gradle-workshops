@@ -1,2 +1,0 @@
-[libraries]
-commons-io = { module = "commons-io:commons-io", version = "2.21.0" }
