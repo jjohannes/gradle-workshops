@@ -1,6 +1,5 @@
 package org.example.javarca.engine
 
-import java.util.function.Consumer
 import kotlin.math.max
 import kotlin.math.min
 import org.example.javarca.model.*
@@ -58,7 +57,7 @@ class Spot(val symbol: Char, x: Int, y: Int) : ActorState {
     }
 
     override fun getValue(p: ActorProperty): Int {
-        return values.getOrDefault(p, initialValues.getOrDefault(p, 0))
+        return values.getOrElse(p) { initialValues.getOrElse(p) { 0 } }
     }
 
     override fun setValue(p: ActorProperty, value: Int): Int {
@@ -140,14 +139,11 @@ class Spot(val symbol: Char, x: Int, y: Int) : ActorState {
         val newY = min(max(0, y + deltaY), (STAGE_SIZE - 1) * PRECISION)
 
         val collisions =
-            allSpots
-                .stream()
-                .filter { s: Spot? ->
-                    s!!.isAlive && s.blocks() && s !== this && doesCollide(deltaX, deltaY, s)
-                }
-                .toList()
+            allSpots.filter { s ->
+                s.isAlive && s.blocks() && s !== this && doesCollide(deltaX, deltaY, s)
+            }
         if (!collisions.isEmpty()) {
-            collisions.forEach(Consumer { s: Spot? -> collide(s!!, all) })
+            collisions.forEach { s -> collide(s, all) }
 
             // maybe we can still move part of the way
             if (deltaX != 0) {

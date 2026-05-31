@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    commonMainApi(project(":engine"))
-    commonMainImplementation("org.lwjgl:lwjgl-glfw:3.3.6")
-    commonMainImplementation("org.lwjgl:lwjgl-opengl:3.3.6")
-    commonMainImplementation("org.lwjgl:lwjgl-stb:3.3.6")
-    commonMainImplementation("org.lwjgl:lwjgl:3.3.6")
+    jvmMainApi(project(":engine"))
+    jvmMainImplementation("org.lwjgl:lwjgl-glfw:3.3.6")
+    jvmMainImplementation("org.lwjgl:lwjgl-opengl:3.3.6")
+    jvmMainImplementation("org.lwjgl:lwjgl-stb:3.3.6")
+    jvmMainImplementation("org.lwjgl:lwjgl:3.3.6")
 }

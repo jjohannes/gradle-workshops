@@ -1,22 +1,18 @@
 package org.example.javarca.engine.impl
 
-import java.util.stream.Collectors
 import org.example.javarca.engine.Spot
 import org.example.javarca.model.ActorProperty
 import org.example.javarca.model.ActorState
 import org.example.javarca.model.ActorStates
 
 class ActorStatesImpl(
-    private val spots: MutableList<Spot>,
+    private val spots: List<Spot>,
     private val root: MutableList<Spot>,
     private val prototypes: Map<Char, Spot>,
 ) : ActorStates {
     override fun filter(symbol: Char): ActorStates {
         return ActorStatesImpl(
-            spots
-                .stream()
-                .filter { it.isAlive() && it.symbol == symbol }
-                .collect(Collectors.toList()),
+            spots.filter { it.isAlive() && it.symbol == symbol },
             root,
             prototypes,
         )
@@ -24,10 +20,7 @@ class ActorStatesImpl(
 
     override fun filter(p: ActorProperty, value: (Int) -> Boolean): ActorStates {
         return ActorStatesImpl(
-            spots
-                .stream()
-                .filter { it.isAlive() && value(it.getValue(p)) }
-                .collect(Collectors.toList()),
+            spots.filter { it.isAlive() && value(it.getValue(p)) },
             root,
             prototypes,
         )
@@ -36,16 +29,16 @@ class ActorStatesImpl(
     override fun print(value: String) {
         var i = 0
         while (i < spots.size && i < value.length) {
-            spots[i].setSkin(value.get(i))
+            spots[i].setSkin(value[i])
             i++
         }
     }
 
     override fun print(value: Int) {
-        val s = String.format("%1$" + spots.size + "s", value).replace(' ', '0')
+        val s = value.toString().padStart(spots.size, '0')
         var i = 0
         while (i < spots.size && i < s.length) {
-            spots[i].setSkin(s.get(i))
+            spots[i].setSkin(s[i])
             i++
         }
     }
@@ -81,13 +74,8 @@ class ActorStatesImpl(
     }
 
     override fun spawn(symbol: Char, x: Int, y: Int, skin: Char): ActorState {
-        val prototype = prototypes.get(symbol)
-        val newSpot: Spot
-        if (prototype == null) {
-            newSpot = Spot(symbol, x, y)
-        } else {
-            newSpot = prototype.clone(symbol, x, y)
-        }
+        val prototype = prototypes[symbol]
+        val newSpot = prototype?.clone(symbol, x, y) ?: Spot(symbol, x, y)
         newSpot.setSkin(skin)
         root.add(newSpot)
         return newSpot
