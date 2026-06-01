@@ -7,6 +7,12 @@ pluginManagement {
     }
 }
 
+File(rootDir, "jamcatch").listFiles()?.forEach { dir ->
+    if (File(dir, "settings.gradle.kts").exists()) {
+        includeBuild(dir)
+    }
+}
+
 dependencyResolutionManagement {
     repositories {
         mavenCentral()

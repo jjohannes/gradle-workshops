@@ -5,8 +5,6 @@ plugins {
     id("my-settings") version "1.0"
 }
 
-includeBuild("jamcatch/model")
-
 listOf("game", "engine", "renderer").forEach {
     include(":$it")
     project(":$it").projectDir = file("jamcatch/$it")
