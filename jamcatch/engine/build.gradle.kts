@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    commonMainApi(project(":model"))
+    commonMainApi("org.example:model:1.0")
 }

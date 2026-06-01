@@ -1,21 +1,13 @@
 pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        // maven("https://my.org/repo") {
-        //     credentials {  }
-        // }
-    }
     includeBuild("gradle/plugins")
 }
-
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-    }
+plugins {
+    id("my-settings") version "1.0"
 }
 
+includeBuild("jamcatch/model")
 
-listOf("model", "game", "engine", "renderer").forEach {
+listOf("game", "engine", "renderer").forEach {
     include(":$it")
     project(":$it").projectDir = file("jamcatch/$it")
 }

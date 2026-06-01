@@ -3,6 +3,8 @@ plugins {
     id("org.gradlex.jvm-dependency-conflict-resolution")
 }
 
+group = "org.example"
+
 val path = layout.buildDirectory.file("smth")
 
 kotlin {
