@@ -1,8 +1,7 @@
 plugins {
-    id("org.jetbrains.kotlin.multiplatform") version "2.3.21"
+    id("my-kotlin-library")
 }
 
-kotlin {
-    jvm()
-    js { browser() }
+dependencies {
+    commonMainApi(project(":model"))
 }
