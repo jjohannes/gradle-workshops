@@ -3,6 +3,8 @@ plugins {
     id("org.gradlex.jvm-dependency-conflict-resolution")
 }
 
+val path = layout.buildDirectory.file("smth")
+
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(21))
