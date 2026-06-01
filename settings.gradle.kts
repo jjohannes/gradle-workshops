@@ -5,6 +5,7 @@ pluginManagement {
         //     credentials {  }
         // }
     }
+    includeBuild("gradle/plugins")
 }
 
 dependencyResolutionManagement {
