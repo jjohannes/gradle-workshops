@@ -4,6 +4,9 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
     jvm()
     js { browser() }
 }
