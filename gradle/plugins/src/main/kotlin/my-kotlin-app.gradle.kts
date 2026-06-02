@@ -35,8 +35,9 @@ tasks.register<Zip>("bundle") {
 
 tasks.register<PrintFileName>("printFileName") {
     group = "package"
-    fileToPrint = tasks.named<Jar>("jvmJar")
-        .flatMap { it.archiveFile }
+    // fileToPrint = tasks.named<Jar>("jvmJar")
+    //     .flatMap { it.archiveFile }
+    fileToPrint.from(configurations.named("jvmRuntimeClasspath"))
     outFile = layout.buildDirectory.file("fileName.txt")
     projectName = project.name
 }

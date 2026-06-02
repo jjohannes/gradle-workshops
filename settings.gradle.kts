@@ -5,7 +5,14 @@ plugins {
     id("my-settings") version "1.0"
 }
 
-listOf("game", "engine", "renderer").forEach {
+dependencyResolutionManagement {
+   // versionCatalogs.register("libs") {
+   //     from("org.example:mycatalog:1.0")
+   // }
+}
+
+
+listOf("model", "game", "engine", "renderer").forEach {
     include(":$it")
     project(":$it").projectDir = file("jamcatch/$it")
 }

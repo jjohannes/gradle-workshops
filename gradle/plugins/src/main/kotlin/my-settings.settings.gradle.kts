@@ -9,13 +9,13 @@ pluginManagement {
 
 File(rootDir, "jamcatch").listFiles()?.forEach { dir ->
     if (File(dir, "settings.gradle.kts").exists()) {
-        includeBuild(dir)
+        // includeBuild(dir)
     }
 }
 
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
-        maven("jamcatch/test-repo")
+        // maven("jamcatch/test-repo")
     }
 }

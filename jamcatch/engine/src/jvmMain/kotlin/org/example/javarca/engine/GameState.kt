@@ -6,6 +6,8 @@ import org.example.javarca.engine.impl.ActorStatesImpl
 import org.example.javarca.model.*
 import org.example.javarca.model.GameConstants.STAGE_SIZE
 import org.example.javarca.model.GameConstants.SYMBOL_EMPTY_SPOT
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 /**
  * Represents the state of the currently running game. The state is primarily composed of a number
@@ -30,6 +32,10 @@ class GameState {
 
     var all: ActorStates
 
+    fun some() : Logger {
+        return LoggerFactory.getLogger(this::class.java)
+    }
+
     init {
         ServiceLoader.load(ActorSet::class.java).forEach { set ->
             actors.putAll(set.items().associateBy { a -> a.symbol })
@@ -41,6 +47,9 @@ class GameState {
 
         val renderedStage = Spot.render(stage).toList()
         val prototypes = mutableMapOf<Char, Spot>()
+
+        org.slf4j.LoggerFactory.getLogger(GameState::class.java);
+
         renderedStage.forEach { spot ->
             if (actors.containsKey(spot.symbol)) {
                 spots.addFirst(spot.clone(SYMBOL_EMPTY_SPOT))

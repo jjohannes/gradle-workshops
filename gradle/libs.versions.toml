@@ -1,0 +1,11 @@
+[versions]
+slf4j = "2.0.17"
+
+[libraries]
+kotlin-logging = { module= "io.github.oshai:kotlin-logging", version = "8.0.4" }
+
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+
+commons-csv = { module = "org.apache.commons:commons-csv", version = "1.14.1"}
+commons-io = { module = "commons-io:commons-io", version = "2.18.0!!" } # strict version !!
